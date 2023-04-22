@@ -1,0 +1,52 @@
+@import url('./reset.css');
+
+body {
+  background-color: grey;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+a {
+  text-decoration: none;
+  color: navy;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 0.3rem;
+}
+
+/* .grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, max(10rem, 100%/5)), 1fr)
+  );
+  gap: 2rem;
+  border: 1px solid blue;
+} */
+
+.grid {
+  display: grid;
+  /* place-items: center; */
+  grid-template-columns: repeat(auto-fit, 185px);
+  grid-gap: 2rem; /* Optional: add gap between grid items */
+}
+
+.card {
+  width: fit-content;
+  grid-column: 1 / -1;
+  /* border: 1px solid red; */
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1070px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, 320px);
+    place-content: center;
+  }
+}

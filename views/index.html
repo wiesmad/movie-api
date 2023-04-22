@@ -1,0 +1,19 @@
+{% include "_header.html" %}
+
+{% include "_pagination.html" %}
+
+<div class="movies grid">
+    {% for movie in movies %}
+      <a href="/movie/{{ movie.id }}">  
+        <div class="card" data-id="{{ movie.id }}">
+          <img loading="lazy" src="{{ movie.posterURL }}" onerror="this.src='../assets/img/default.jpg';"/>
+        </div>
+      </a>
+    {% endfor %}
+</div>
+
+<script>  
+
+</script>
+  
+{% include "_footer.html" %}

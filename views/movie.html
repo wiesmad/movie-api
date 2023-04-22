@@ -1,0 +1,15 @@
+{% include "_header.html" %}
+
+        <h3>Title: {{ movie.title }}<span> ({{ movie.getYear() }})</span></h3>
+        <p>Runtime(min): {{ movie.time }}</p>
+        <p>id: {{ movie.id }}</p>
+        <p>Vote: {{ movie.vote }} / 10.0</p>
+        <p>Genres:
+            {% for genre in movie.genres %}
+                <span>{{ genre.name }}</span>
+            {% endfor %}
+        </p>
+        <p>{{ movie.overview }}</p>
+        <img loading="lazy" src="{{ movie.posterURL }}" onerror="this.src='../assets/img/default.jpg';" alt="" />
+        <a href="{{ movie.images }}">images</a>
+{% include "_footer.html" %}
