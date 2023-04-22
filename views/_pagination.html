@@ -3,16 +3,8 @@
   {% if totalPages > 1 %}
     <p>page {{ currentPage }} of {{ totalPages }}</p>
     <div>
-      {% if currentPage === 1 %}
-        <a href="#">Prev</a>
-        <a href="/search/{{ currentPage + 1}}">Next</a>
-      {% elif currentPage === totalPages %}
-        <a href="/search/{{ currentPage - 1}}">Prev</a>
-        <a href="#">Next</a>
-      {% else %}
-        <a href="/search/{{ currentPage - 1}}">Prev</a>
-        <a href="/search/{{ currentPage + 1}}">Next</a>
-      {% endif %}
+      <button class="prevBtn" >Prev</button>
+      <button class="nextBtn" >Next</button>
     </div>
   {% endif %}
   <p>count: {{ count }}</p>
