@@ -1,0 +1,32 @@
+{% include "_header.html" %}
+        <h3>Name: {{ person.name }}</h3>
+        <p>Gender: {% if person.gender === 1 %}
+            Female
+            {% elseif person.gender === 2 %}
+            Male
+            {% elseif person.gender === 0 %}
+            Unknown
+        {% endif %}</p>
+
+        <p>Born: {{ person.birth }} in {{ person.place }}</p>
+        {% if person.death %}
+            <p>Death: {{ person.death }}</p>
+        {% endif %} <br>
+        <img src="{{ person.imageMed }}" alt=""> <br>
+
+            {% for movie in cast %}
+
+                {% if movie.title %} 
+                    
+                <a href="/movie/{{ movie.id }}">
+                    <p><strong>{{ movie.title }}</strong></p>
+                </a>
+                <p>as: {{ movie.character }}</p> <br>
+                
+                {% endif %} 
+
+            {% endfor %}
+    
+{% include "_footer.html" %}
+
+</div>

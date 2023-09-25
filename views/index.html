@@ -1,19 +1,42 @@
 {% include "_header.html" %}
 
+  <div class="radio-wrap" data="{{ pageTitle }}">
+    <input type="radio" name="option" id="option_1" value="now_playing">
+    <label for="option_1" data="now_playing">Now Playing</label>
+    <input type="radio" name="option" id="option_2" value="popular">
+    <label for="option_2" data="popular">Popular</label>
+    <input type="radio" name="option" id="option_3" value="top_rated">
+    <label for="option_3" data="top_rated">Top Rated</label>
+    <input type="radio" name="option" id="option_4" value="upcoming">
+    <label for="option_4" data="upcoming">Upcoming</label>
+  </div>
+
+
+<!-- <h2>{{ pageTitle | replace('_', ' ') | capitalize }}</h2> -->
+
 {% include "_pagination.html" %}
 
-<div class="movies grid">
+  <div class="movies grid">
+
+    
     {% for movie in movies %}
-      <a href="/movie/{{ movie.id }}">  
-        <div class="card" data-id="{{ movie.id }}">
-          <img loading="lazy" src="{{ movie.posterURL }}" onerror="this.src='../assets/img/default.jpg';"/>
+    
+    {% if movie.poster %}
+      <div class='card data-id="{{ movie.id }}"'>
+        <a href="/movie/{{ movie.id }}">
+          <img loading="lazy" src="{{ movie.posterMed }}" onerror="this.src='../assets/img/default.jpg'" loading="lazy"/>
+        </a>
+        <div class="show_title">
+          <p>Title:</p>
+          <strong>{{ movie.title }}</strong>
         </div>
-      </a>
-    {% endfor %}
-</div>
+      </div>
+      {% endif %}
 
-<script>  
+      {% endfor %}
 
-</script>
+  </div>
   
 {% include "_footer.html" %}
+
+</div>

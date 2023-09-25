@@ -1,15 +1,35 @@
 {% include "_header.html" %}
 
-        <h3>Title: {{ movie.title }}<span> ({{ movie.getYear() }})</span></h3>
-        <p>Runtime(min): {{ movie.time }}</p>
-        <p>id: {{ movie.id }}</p>
+        <h3>Title: {{ movie.title }}
+            <span> ({{ movie.year }})</span>
+            <span> ({{ movie.orgLng }})</span>
+        </h3>
+        <p>Release date: {{ movie.date }}</p>
+        <p>Runtime: {{ movie.time }} min.</p>
         <p>Vote: {{ movie.vote }} / 10.0</p>
         <p>Genres:
             {% for genre in movie.genres %}
-                <span>{{ genre.name }}</span>
+                <a href="/genres/{{ genre.id }}"><span data="{{ genre.id }}" class="genre">{{ genre.name | lower }}</span></a>
             {% endfor %}
-        </p>
-        <p>{{ movie.overview }}</p>
-        <img loading="lazy" src="{{ movie.posterURL }}" onerror="this.src='../assets/img/default.jpg';" alt="" />
-        <a href="{{ movie.images }}">images</a>
+        </p> <br>
+        <p>Director: </p><a href="/director/{{ director.id }}">{{ director.name }} <br> <br>
+        <img loading="lazy" src="{{ movie.posterMed }}" onerror="this.src='../assets/img/default.jpg';" alt="" /> <br>
+        <div>  
+            <p>Cast:</p>   
+            {% for person in cast.slice(0, 10) %}
+
+                {% if person.character %}        
+                <div class="person show">
+                    <a href="/person/{{ person.id }}">
+                    <p data-id="{{ person.id }}">{{ person.name }}</a> as: {{ person.character }}</p>
+                </div>     
+                {% endif %}
+
+            {% endfor %}
+        </div> <br>
+
+        <p>{{ movie.overview }}</p> <br>
+    
 {% include "_footer.html" %}
+
+</div>

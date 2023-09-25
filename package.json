@@ -11,8 +11,11 @@
   "author": "Wieslaw Mazurak <wmazurak@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "accept-language-parser": "^1.5.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "node-sessionstorage": "^1.0.0",
     "nunjucks": "^3.2.3"
   },
   "devDependencies": {

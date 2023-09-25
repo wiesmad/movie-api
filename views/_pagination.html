@@ -4,14 +4,20 @@
     <p>page {{ currentPage }} of {{ totalPages }}</p>
     <div>
       {% if currentPage === 1 %}
+        <a href="#">First</a>
         <a href="#">Prev</a>
-        <a href="/search/{{ currentPage + 1}}">Next</a>
+        <a href="?keyword={{ keyword }}&page={{ currentPage + 1}}">Next</a>
+        <a href="?keyword={{ keyword }}&page={{ totalPages }}">Last</a>
       {% elif currentPage === totalPages %}
-        <a href="/search/{{ currentPage - 1}}">Prev</a>
+        <a href="?keyword={{ keyword }}&page={{ totalPages - totalPages + 1 }}">First</a>
+        <a href="?keyword={{ keyword }}&page={{ currentPage - 1}}">Prev</a>
         <a href="#">Next</a>
+        <a href="#">Last</a>
       {% else %}
-        <a href="/search/{{ currentPage - 1}}">Prev</a>
-        <a href="/search/{{ currentPage + 1}}">Next</a>
+        <a href="?keyword={{ keyword }}&page={{ totalPages - totalPages + 1 }}">First</a>
+        <a href="?keyword={{ keyword }}&page={{ currentPage - 1}}">Prev</a>
+        <a href="?keyword={{ keyword }}&page={{ currentPage + 1}}">Next</a>
+        <a href="?keyword={{ keyword }}&page={{ totalPages }}">Last</a>
       {% endif %}
     </div>
   {% endif %}
